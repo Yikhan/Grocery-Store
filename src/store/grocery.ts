@@ -16,12 +16,20 @@ export const useGroceryStore = defineStore(
       groceries.value.push(grocery)
     }
 
-    function deleteGrocery(index: number) {
+    function deleteGrocery(id: number) {
+      const index = groceries.value.findIndex((g) => g.id === id)
+      if (index < 0) return
       groceries.value.splice(index, 1)
     }
 
-    function updateGrocery(index: number, updatedGrocery: Grocery) {
+    function updateGrocery(updatedGrocery: Grocery) {
+      const index = groceries.value.findIndex((g) => g.id === updatedGrocery.id)
+      if (index < 0) return
       groceries.value.splice(index, 1, updatedGrocery)
+    }
+
+    function resetGroceries() {
+      groceries.value = []
     }
 
     return {
@@ -29,6 +37,7 @@ export const useGroceryStore = defineStore(
       addGrocery,
       deleteGrocery,
       updateGrocery,
+      resetGroceries
     }
   },
   {

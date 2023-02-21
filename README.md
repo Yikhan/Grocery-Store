@@ -1,3 +1,13 @@
 # Grocery-Store
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/vue3-vite-typescript-starter-wjrl2u)
+Install project
+
+```
+npm install
+```
+
+Run project
+
+```
+npm run dev
+```
